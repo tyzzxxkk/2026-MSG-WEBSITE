@@ -178,7 +178,7 @@
   .about-item--make .about-circle {
     width: 340px;
     height: 340px;
-    background: url(/image/index/deco-circle-01.png) center / cover no-repeat;
+    background: url('/image/index/deco-circle-01.png') center / cover no-repeat;
     top: 50%;
     left: 14%;
     transform: translate(-50%, -50%);
@@ -188,7 +188,7 @@
   .about-item--share .about-circle {
     width: 320px;
     height: 320px;
-    background: url(/image/index/deco-circle-02.png) center / cover no-repeat;
+    background: url('/image/index/deco-circle-02.png') center / cover no-repeat;
     top: 50%;
     right: 14%;
     left: auto;
@@ -477,6 +477,7 @@
 .activity_left{
   grid-column: 1 / 2;
   grid-row: 1 / 2;
+  margin-left: -30px;
 }
 
 .activity_label{
@@ -547,6 +548,7 @@
   width: 490px;
   height: 289px;
   object-fit: cover;
+  margin-right: -30px;
 }
 
 .activity_bottom{
@@ -562,6 +564,7 @@
 .activity_bottom img {
   width: 400px;
   height: 339px;
+  margin-left: -30px;
 }
 
 /* NEXT BUTTON CARD */
@@ -574,6 +577,7 @@
   justify-content: center;
   width: 128px;
   height: 339px;
+  left: -100px;
 }
 
 .activity_arrow{
@@ -582,4 +586,237 @@
   line-height: 1;
   font-weight: 300;
   transform: translateX(2px);
+}
+
+/* ===== SECTION ===== */
+.award-section{
+  width: 100%;
+  background: #fff;
+  padding: 60px 0 80px;
+}
+
+.award-wrap{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: start;
+}
+
+/* ===== LEFT ===== */
+.award-left{
+  padding-top: 30px;
+  margin-left: -30px;
+}
+
+.reward-title{
+  font-family: 'GMarketSans';
+  font-weight: 400;
+  font-size: 48px;
+  color: #608DFF;
+  margin-bottom: 50px;
+  left: -100px;
+}
+
+/* ✅ 진짜 스크롤 박스 */
+.reward-scrollArea{
+  height: 500px;          /* 🔥 여기 높이만 네 디자인에 맞게 조절 */
+  left: -100px;
+  overflow-y: auto;
+  padding-right: 12px;    /* 스크롤바랑 내용 겹치지 않게 */
+
+  /* 스크롤이 자연스럽게 */
+  overscroll-behavior: contain;
+}
+
+/* ===== TABLE ===== */
+.reward-list{
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Pretendard";
+}
+
+.reward-list th,
+.reward-list td{
+  padding: 26px 0;
+  text-align: left;
+  border-bottom: 1px solid #efefef;
+}
+
+.reward-list th{
+  font-size: 14px;
+  font-weight: 600;
+  color: #bdbdbd;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 2;
+}
+
+.reward-list td{
+  font-size: 15px;
+  color: #424242;
+}
+
+.reward-list td a{
+  color: #608DFF;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+/* ===== RIGHT ===== */
+.award-right{
+  position: relative;
+  min-height: 540px;
+}
+
+.award-trophy{
+  position: absolute;
+  right: -245px;   /* 🔥 오른쪽으로 삐져나오게 */
+  top: -50px;
+  width: 1000px;
+  height: 1000px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ===== 스크롤바 스타일 (크롬/엣지) ===== */
+.reward-scrollArea::-webkit-scrollbar{
+  width: 8px;
+}
+
+.reward-scrollArea::-webkit-scrollbar-track{
+  background: transparent;
+}
+
+.reward-scrollArea::-webkit-scrollbar-thumb{
+  background: #d6d6d6;
+  border-radius: 999px;
+}
+
+/* 파이어폭스 */
+.reward-scrollArea{
+  scrollbar-width: thin;
+  scrollbar-color: #d6d6d6 transparent;
+}
+
+:root{
+  --blue:#608DFF;
+}
+
+.global-title{
+  margin-top: 500px;
+  font-family:'GMarketSans';
+  font-size:48px;
+  color:#608DFF;
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.global-row{
+  position:relative;
+  z-index:5;           /* ✅ 원이 점선보다 앞 */
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  gap:90px;
+}
+
+/* 정렬 */
+.global-row{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:center;
+  gap:90px;
+  z-index: 3;
+}
+
+/* 카드 */
+.global-card{
+  width:320px;
+  height:320px;
+  perspective:1000px;
+}
+
+/* 원 */
+.global-circle{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  border:2px solid var(--blue);
+  position:relative;
+  overflow:hidden;
+  transition:.35s;
+}
+
+/* 앞면 (기본 흰 원) */
+.circle-front{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-family:'GMarketSans';
+  font-size:32px;
+  color:var(--blue);
+
+  transition:.3s;
+}
+
+/* 뒷면 (파란 내용) */
+.circle-back{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  color:#fff;
+  text-align:center;
+
+  opacity:0;
+  transform:scale(.9);
+  transition:.3s;
+}
+
+/* hover 시 원 색 변경 */
+.global-circle:hover{
+  background:var(--blue);
+  border-color:var(--blue);
+}
+
+/* hover 시 앞면 숨김 */
+.global-circle:hover .circle-front{
+  opacity:0;
+}
+
+/* hover 시 내용 등장 */
+.global-circle:hover .circle-back{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* 텍스트 */
+.back-small{
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.back-country{
+  font-size:26px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+.back-names{
+  font-size:14px;
+  line-height:1.8;
 }
