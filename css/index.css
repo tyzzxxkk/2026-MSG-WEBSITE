@@ -294,7 +294,7 @@
 }
 
 .project-title {
-  margin-top: 300px;
+  margin-top: 400px;
   font-family: 'GMarketSans';
   font-weight: 500;
   font-size: 48px;
@@ -617,6 +617,7 @@
   font-weight: 400;
   font-size: 48px;
   color: #608DFF;
+  margin-top: 300px;
   margin-bottom: 50px;
   left: -100px;
 }
@@ -677,9 +678,9 @@
 .award-trophy{
   position: absolute;
   right: -245px;   /* 🔥 오른쪽으로 삐져나오게 */
-  top: -50px;
   width: 1000px;
   height: 1000px;
+  top: 220px;
   pointer-events: none;
   user-select: none;
 }
@@ -719,17 +720,16 @@
 
 .global-row{
   position:relative;
-  z-index:5;           /* ✅ 원이 점선보다 앞 */
-  max-width:1200px;
+  z-index:5;
+  max-width: 1200px;
   margin:0 auto;
   display:flex;
   justify-content:center;
   gap:90px;
 }
 
-/* 정렬 */
-.global-row{
-  max-width:1200px;
+.global-row {
+  max-width: 1200px;
   margin:0 auto;
   display:flex;
   justify-content:center;
@@ -819,4 +819,166 @@
 .back-names{
   font-size:14px;
   line-height:1.8;
+}
+
+:root{
+  --cardBorder: rgba(96,141,255,.75);
+}
+
+/* 섹션 */
+.member{
+  width: 100%;
+  background: #fff;
+  padding: 110px 0 120px;
+  overflow: hidden; /* ✅ 밖으로 나가는 카드 숨김 */
+}
+
+.member-title{
+  font-family: 'GMarketSans';
+  font-size: 48px;
+  font-weight: 500;
+  color: #608DFF;
+  margin-bottom: 26px;
+  margin-left: 225px;
+  margin-top: 300px;
+}
+
+/* 마퀴(가로 슬라이드) 컨테이너 */
+.member-marquee{
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 1줄/2줄 간격 */
+.member-marquee--row1{ margin-bottom: 28px; }
+.member-marquee--row2{ margin-bottom: 0; }
+
+/* 실제로 움직이는 트랙 */
+.member-track{
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  will-change: transform;
+  animation: memberScroll 28s linear infinite;
+}
+
+/* 2번째 줄은 반대 방향 + 약간 느리게 (스크린샷처럼 자연스러움) */
+.member-marquee--row2 .member-track{
+  animation: memberScrollReverse 34s linear infinite;
+}
+
+/* hover하면 멈춤(원하면 삭제 가능) */
+.member-marquee:hover .member-track{
+  animation-play-state: paused;
+}
+
+.member-15th{
+  width: 570px;
+  min-height: 263px;   /* 최소만 유지 */
+  height: auto; 
+  border: 1.6px solid var(--cardBorder);
+  border-radius: 16px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 204px 1fr; /* ✅ 사진 폭과 동일 */
+  column-gap: 32px;
+  align-items: center;
+  padding: 24px 28px;              /* ✅ 카드 안 여백 예쁘게 */
+  box-shadow: 0 8px 16px rgba(0,0,0,.06); 
+}
+
+.member-16th{
+  width: 570px;
+  min-height: 263px;   /* 최소만 유지 */
+  height: auto; 
+  border: 1.6px solid var(--cardBorder);
+  border-radius: 16px;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 204px 1fr; /* ✅ 사진 폭과 동일 */
+  column-gap: 32px;
+  align-items: center;
+  padding: 24px 28px;           /* ✅ 카드 안 여백 예쁘게 */
+  margin-bottom: 300px;
+  box-shadow: 0 8px 16px rgba(0,0,0,.06); 
+}
+
+.member-photo{
+  width: 204px;
+  height: 204px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.member-info{
+  padding-left: 16px;
+  padding-bottom: 16px;
+}
+
+.member-role{
+  font-family: 'Pretendard';
+  font-size: 18px;
+  color: #9e9e9e;
+  margin-bottom: 6px;
+}
+
+.member-name{
+  font-family: 'Pretendard';
+  font-size: 24px;
+  font-weight: 600;
+  color: #424242;
+  margin-bottom: 6px;
+}
+
+.member-desc{
+  font-family: 'Pretendard';
+  font-size: 21px;
+  color: #424242;
+  line-height: 1.35;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* 너무 길면 2줄까지만 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.member-grade {
+  font-family: 'Pretendard';
+  font-size: 24px;
+  color: #424242;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 225px;
+}
+
+@keyframes memberScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-1 * var(--loopWidth))); }
+}
+
+@keyframes memberScrollReverse{
+  from { transform: translateX(calc(-1 * var(--loopWidth))); }
+  to   { transform: translateX(0); }
+}
+
+.member-15th:hover,
+.member-16th:hover {
+  background: #608DFF;
+  box-shadow: 0 10px 22px rgba(96,141,255,.18);
+  transform: translateY(-2px);
+}
+
+.member-15th:hover .member-name,
+.member-16th:hover .member-name{
+  color:#fff;
+}
+
+.member-15th:hover .member-role,
+.member-16th:hover .member-role{
+  color:#fff;
+}
+
+.member-15th:hover .member-desc,
+.member-16th:hover .member-desc{
+  color:#fff;
 }

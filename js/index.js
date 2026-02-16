@@ -21,7 +21,7 @@ const awards = [
   { title: "뉴미디어디자인 어워드", date: "2024.10.04", source: "미림마이스터고" },
   { title: "창의 아이디어 경진대회 금상", date: "2024.07.08", source: "미림마이스터고" },
   { title: "창의 아이디어 경진대회 은상", date: "2024.07.08", source: "미림마이스터고" },
-  { title: "App Jam 장려상", date: "2024.06.23", source: "SK 플래닛(주)" },
+  { title: "APP JAM 장려상", date: "2024.06.23", source: "SK 플래닛(주)" },
   { title: "APP JAM 우수상", date: "2024.04.21", source: "SK 플래닛(주)" }
 ];
 
@@ -48,6 +48,23 @@ function populateAwards() {
   });
 }
 
-
 // 실행
 populateAwards();
+
+document.querySelectorAll(".member-track").forEach((track) => {
+  if (track.dataset.duped === "1") return;
+
+  // 1) 원본 아이템들만 가져오기
+  const items = Array.from(track.children);
+
+  // 2) 원본 길이(px) 측정 (복제 전)
+  const originalWidth = track.scrollWidth;
+
+  // 3) 아이템만 복제해서 뒤에 붙이기 (A A 만들기)
+  items.forEach((item) => track.appendChild(item.cloneNode(true)));
+
+  // 4) 이동해야 할 정확한 거리(px)를 CSS 변수로 저장
+  track.style.setProperty("--loopWidth", `${originalWidth}px`);
+
+  track.dataset.duped = "1";
+});
