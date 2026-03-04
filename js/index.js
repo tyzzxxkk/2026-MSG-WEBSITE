@@ -27,7 +27,7 @@ const activities = [
   {
     title: "IT SHOW",
     sub: "2학년이 되면 부원들과 함께  IT SHOW에 참여하게 됩니다!",
-    desc: "지브리 등장인물로 알아보는 성격유형테스트 “그대들 어떤 캐릭터처럼 살 것인가” 를 제작했습니다.",
+    desc: "지브리 등장인물로 알아보는 성격유형테스트 \u201C그대들 어떤 캐릭터처럼 살 것인가\u201D 를 제작했습니다.",
     top: "/image/activity/itshow01.jpg",
     images: [
       "/image/activity/itshow02.jpg",
@@ -136,3 +136,80 @@ document.querySelectorAll(".member-track").forEach((track) => {
 
   track.dataset.duped = "1";
 });
+
+// ─── 배너 웨이브 이미지 둥실둥실 애니메이션 ───────────────────────────
+// 각 이미지마다 다른 속도·진폭·위상으로 위아래로 부드럽게 움직임
+// 배너 웨이브 이미지 둥실둥실 애니메이션
+(function initBannerFloat() {
+  const banners = [
+    { el: document.querySelector(".banner-02"), amplitude: 7, period: 3000, phase: 0 },
+    { el: document.querySelector(".banner-03"), amplitude: 5, period: 3000, phase: Math.PI * 0.6 },
+    { el: document.querySelector(".banner-04"), amplitude: 9, period: 3000, phase: Math.PI * 1.3 },
+  ];
+
+  const targets = banners.filter(b => b.el !== null);
+
+  // 요소를 못 찾으면 콘솔에 알려줌
+  if (targets.length === 0) {
+    console.warn("배너 이미지 요소를 찾지 못했습니다. 클래스명을 확인하세요.");
+    return;
+  }
+
+  function tick(timestamp) {
+    targets.forEach(b => {
+      const y = b.amplitude * Math.sin((2 * Math.PI * timestamp) / b.period + b.phase);
+      b.el.style.transform = `translateY(${y}px)`;
+    });
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+})();
+
+// 로고 데코 이미지 둥실둥실 애니메이션 + 호버 시 크기 확대
+(function initLogoDecoFloat() {
+  const decos = [
+    { el: document.querySelector(".about-item--make .about-logo img"),   amplitude: 12, period: 6200, phase: 0 },
+    { el: document.querySelector(".about-item--share .about-logo img"),  amplitude: 9,  period: 7800, phase: Math.PI * 0.7 },
+    { el: document.querySelector(".about-item--gather .about-logo img"), amplitude: 15, period: 5500, phase: Math.PI * 1.4 },
+  ];
+
+  const targets = decos.filter(d => d.el !== null);
+
+  targets.forEach(d => {
+    // scale 전용 wrapper 생성 — float과 scale 레이어 분리
+    const wrapper = document.createElement("div");
+    wrapper.style.cssText = `
+      display: inline-block;
+      transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
+    `;
+
+    // img를 wrapper 안으로 이동
+    d.el.parentNode.insertBefore(wrapper, d.el);
+    wrapper.appendChild(d.el);
+
+    d.wrapper = wrapper;
+    d.hovered = false;
+
+    wrapper.addEventListener("mouseenter", () => {
+      d.hovered = true;
+      wrapper.style.transform = "scale(1.12)";
+    });
+    wrapper.addEventListener("mouseleave", () => {
+      d.hovered = false;
+      wrapper.style.transform = "scale(1)";
+    });
+  });
+
+  // float 애니메이션은 img에 직접 (scale wrapper와 독립)
+  function tick(timestamp) {
+    targets.forEach(d => {
+      const y = d.amplitude * Math.sin((2 * Math.PI * timestamp) / d.period + d.phase);
+      d.el.style.transform = `translateY(${y}px)`;
+    });
+    requestAnimationFrame(tick);
+  }
+
+  requestAnimationFrame(tick);
+})();
