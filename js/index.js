@@ -54,7 +54,7 @@ const activities = [
     images: [
       "/image/activity/social02.jpg",
       "/image/activity/social03.jpg",
-      "/image/activity/social04.jpg",
+      "/image/activity/social04.png",
     ]
   }
 ];
@@ -118,6 +118,7 @@ function populateAwards() {
 
 // 실행
 populateAwards();
+updateActivity();
 
 document.querySelectorAll(".member-track").forEach((track) => {
   if (track.dataset.duped === "1") return;
