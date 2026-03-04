@@ -1,6 +1,11 @@
 .main {
     min-height: 100vh;
     padding: 0 var(--basic-padding);
+    overflow-x: hidden;
+}
+
+.body {
+  overflow-x: hidden;
 }
 
 .content-banner {
@@ -46,7 +51,73 @@
     font-size: 21px;
 }
 
+.content-banner .banner-04,
+.content-banner .banner-02,
+.content-banner .banner-03 {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    top: 9%;
+    left: 14%;
+    width: 33%;
+    will-change: transform;
+}
+
+.content-banner .banner-04 {
+  top: 47%;
+  left: 27%;
+  width: 70%;
+}
+
+.content-banner .banner-02 {
+  top: 54%;
+  left: 24%;
+  width: 65%;
+}
+
+.content-banner .banner-03 {
+  top: 15%;
+  left: 14%;
+  width: 80%;
+}
+
 .content-banner .banner-01,
+.content-banner .banner-06,
+.content-banner .banner-12,
+.content-banner .banner-13{
+    position: absolute;
+    pointer-events: none;
+    top: 67%;
+    left: 60%;
+    width: 8%;
+    z-index: 0;
+}
+
+.content-banner .banner-01 {
+  top: 14.5%;
+  left: 15.35%;
+  width: 28%;
+}
+
+.content-banner .banner-06 {
+  top: 1%;
+  left: 60%;
+  width: 30%;
+}
+
+.content-banner .banner-12 {
+  top: 3%;
+  left: 1%;
+  width: 16%;
+}
+
+.content-banner .banner-13 {
+  top: 3%;
+  left: 83%;
+  width: 16%;
+}
+
+/* .content-banner .banner-01,
 .content-banner .banner-02,
 .content-banner .banner-03,
 .content-banner .banner-04,
@@ -59,13 +130,11 @@
 .content-banner .banner-11 {
   position: absolute;
   pointer-events: none;
-}
+  /* 배너 이미지 위 레이어로 올리기 */
+  /* z-index: 1;
+} */
 
-.content-banner .banner-01 {
-  top: 9%;
-  left: 14%;
-  width: 33%;
-}
+/* 
 
 .content-banner .banner-02 {
   top: 67%;
@@ -103,18 +172,6 @@
   width: 4%;
 }
 
-.content-banner .banner-08 {
-  top: 43%;
-  left: 74%;
-  width: 16%;
-}
-
-.content-banner .banner-09 {
-  top: 1%;
-  left: 1%;
-  width: 16%;
-}
-
 .content-banner .banner-10 {
   top: 60%;
   left: 13%;
@@ -125,7 +182,7 @@
   top: 65%;
   left: 58%;
   width: 27%;
-}
+} */
 
 .content-about {
     position: relative;
@@ -185,8 +242,8 @@
 
   /* M 뒤 — deco-circle-01 (보라) */
   .about-item--make .about-circle {
-    width: 340px;
-    height: 340px;
+    width: 450px;
+    height: 450px;
     background: url('/image/index/deco-circle-01.png') center / cover no-repeat;
     top: 50%;
     left: 14%;
@@ -195,8 +252,8 @@
 
   /* S 뒤 — deco-circle-02 (노랑) */
   .about-item--share .about-circle {
-    width: 320px;
-    height: 320px;
+    width: 450px;
+    height: 450px;
     background: url('/image/index/deco-circle-02.png') center / cover no-repeat;
     top: 50%;
     right: 14%;
@@ -206,8 +263,8 @@
 
   /* G 뒤 — deco-circle-03 (파랑) */
   .about-item--gather .about-circle {
-    width: 340px;
-    height: 340px;
+    width: 450px;
+    height: 450px;
     background: url('/image/index/deco-circle-03.png') center / cover no-repeat;
     top: 50%;
     left: 14%;
@@ -225,6 +282,7 @@
     display: block;
     width: 220px;
     height: auto;
+    will-change: transform;
 }
 
   /* ---- 텍스트 그룹 ---- */
@@ -270,7 +328,7 @@
 .content-desc h2 {
   font-family: 'GMarketSans';
   font-size: 46px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5;
   color: #424242;
   margin-bottom: 40px;
@@ -286,8 +344,9 @@
 .highlight {
   position: relative;
   display: inline-block;
-  font-weight: 600;
   z-index: 0;
+  font-weight: inherit; 
+
 }
 
 .highlight::after {
@@ -302,7 +361,7 @@
   border-radius: 2px;
 
   width: 0;
-  transition: width 0.6s ease;
+  transition: width 1.2s ease;
 }
 
 .highlight.active::after {
