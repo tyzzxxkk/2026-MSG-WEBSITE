@@ -354,7 +354,7 @@ html {
 }
 
 .project-title {
-  margin-top: 400px;
+  margin-top: 300px;
   font-family: 'GMarketSans';
   font-weight: 500;
   font-size: 40px;
@@ -391,8 +391,8 @@ html {
 }
 
 .img-main {
-  width: 600px;
-  height: 500px;
+  width: 2100px;
+  height: 520px;
   object-fit: contain;
 
   position: relative;

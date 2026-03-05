@@ -13,9 +13,11 @@ observer.observe(highlight);
 const swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   centeredSlides: true,
-  loop: false,
+  // enable looping so arrows cycle through 13→14→15→13
+  loop: true,
   spaceBetween: 200,
   watchSlidesProgress: true,
+  initialSlide: 0, // start on first slide (13th generation)
 
   navigation: {
     nextEl: ".swiper-button-next",
@@ -221,5 +223,31 @@ if (navLogoText) {
   navLogoText.addEventListener("click", (e) => {
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+// 프로젝트 클릭 → 섹션으로 스크롤 (추가 오프셋)
+const navProject = document.getElementById("nav-project");
+if (navProject) {
+  navProject.addEventListener("click", (e) => {
+    e.preventDefault();
+    const section = document.getElementById("section-project");
+    if (section) {
+      const offsetY = section.offsetTop - 150;
+      window.scrollTo({ top: offsetY, behavior: "smooth" });
+    }
+  });
+}
+
+// 부원 클릭 → 섹션으로 스크롤 (추가 오프셋)
+const navMember = document.getElementById("nav-member");
+if (navMember) {
+  navMember.addEventListener("click", (e) => {
+    e.preventDefault();
+    const section = document.getElementById("section-member");
+    if (section) {
+      const offsetY = section.offsetTop - 150;
+      window.scrollTo({ top: offsetY, behavior: "smooth" });
+    }
   });
 }
