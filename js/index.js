@@ -26,13 +26,13 @@ const swiper = new Swiper(".mySwiper", {
 
 const activities = [
   {
-    title: "IT SHOW",
-    sub: "2학년이 되면 부원들과 함께  IT SHOW에 참여하게 됩니다!",
-    desc: "지브리 등장인물로 알아보는 성격유형테스트 \u201C그대들 어떤 캐릭터처럼 살 것인가\u201D 를 제작했습니다.",
-    top: "/image/activity/itshow01.jpg",
+    title: "COOPERATION",
+    sub: "동아리 내에서 다양한 협업 활동을 경험하게 됩니다.",
+    desc: "다양한 공모전과 토이프로젝트를 진행합니다.",
+    top: "/image/activity/cooperation01.jpg",
     images: [
-      "/image/activity/itshow02.jpg",
-      "/image/activity/itshow03.jpg",
+      "/image/activity/cooperation02.png",
+      "/image/activity/cooperation03.png",
       "/image/activity/itshow04.jpg",
     ]
   },

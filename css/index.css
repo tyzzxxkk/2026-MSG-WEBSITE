@@ -700,7 +700,7 @@ html {
 
 /* ✅ 진짜 스크롤 박스 */
 .reward-scrollArea{
-  height: 700px;          /* 🔥 여기 높이만 네 디자인에 맞게 조절 */
+  height: 500px;          /* 🔥 여기 높이만 네 디자인에 맞게 조절 */
   left: -100px;
   overflow-y: auto;
   padding-right: 12px;    /* 스크롤바랑 내용 겹치지 않게 */
@@ -926,6 +926,7 @@ html {
   padding: 110px 0 120px;
   overflow: hidden;
   transform-origin: top center;
+  margin-bottom: -100px;
 }
 
 .member-title{
