@@ -27,19 +27,19 @@ const swiper = new Swiper(".mySwiper", {
 const activities = [
   {
     title: "COOPERATION",
-    sub: "동아리 내에서 다양한 협업 활동을 경험하게 됩니다.",
-    desc: "다양한 공모전과 토이프로젝트를 진행합니다.",
+    sub: "동아리 내에서 다양한 경험을 할 수 있는 협업 활동",
+    desc: "다양한 공모전과 토이 프로젝트를 진행합니다.",
     top: "/image/activity/cooperation01.jpg",
     images: [
       "/image/activity/cooperation02.png",
       "/image/activity/cooperation03.png",
-      "/image/activity/itshow04.jpg",
+      "/image/activity/cooperation04.png",
     ]
   },
   {
     title: "STUDY",
     sub: "동아리 내에서 자체적으로 진행하는 전공 스터디",
-    desc: "전공 스터디와 함께 1학년끼리 팀별 프로젝트를 진행합니다. ",
+    desc: "전공 스터디와 함께 1학년은 코딩테스트를 진행합니다. ",
     top: "/image/activity/study01.jpg",
     images: [
       "/image/activity/study02.jpg",
@@ -49,8 +49,8 @@ const activities = [
   },
   {
     title: "SOCIALIZING",
-    sub: "동아리 내에서 친목을 도모하는 활동을 합니다",
-    desc: "회식과 교내 모임을 통해 선후배 간 친목을 다집니다",
+    sub: "동아리 내에서 선후배 간의 친목 활동",
+    desc: "회식과 교내 모임을 통해 유대감을 쌓을 수 있습니다.",
     top: "/image/activity/social01.jpg",
     images: [
       "/image/activity/social02.jpg",
