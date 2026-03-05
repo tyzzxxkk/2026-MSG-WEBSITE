@@ -49,13 +49,12 @@ html {
     z-index: 0;
 }  
 
-.floating {
+/* .floating {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     opacity: 0.9;
-    /* 기본 상태는 연한 색으로 설정 */
-    background-color: #a3c2ff; /* 밝은 파란색 */
+    background-color: #a3c2ff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,17 +63,16 @@ html {
     transition: background-color 0.2s;
 }
 
-/* 호버 시 진해진 배경색 */
 .floating:hover {
     opacity: 1;
-    background-color: #608DFF; /* 원래 색보다 진한 파란색 */
+    background-color: #608DFF;
 }
 
 .floating p {
     margin: 0;
     color: white;
     font-size: 21px;
-}
+} */
 
 .content-banner .banner-04,
 .content-banner .banner-02,
@@ -656,11 +654,12 @@ html {
 }
 
 .activity_arrow {
-  color: #fff;
-  font-size: 40px;
-  line-height: 1;
-  font-weight: 300;
-  transform: translateX(2px);
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid #fff;
+  border-right: 3px solid #fff;
+  transform: rotate(45deg);
 }
 
 /* ===== SECTION ===== */
@@ -758,6 +757,8 @@ html {
   right: -265px;
   width: 650px;
   height: 850px;
+
+
   top: 220px;
   pointer-events: none;
   user-select: none;
