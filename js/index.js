@@ -13,11 +13,10 @@ observer.observe(highlight);
 const swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   centeredSlides: true,
-  // enable looping so arrows cycle through 13→14→15→13
   loop: true,
   spaceBetween: 200,
   watchSlidesProgress: true,
-  initialSlide: 0, // start on first slide (13th generation)
+  initialSlide: 0,
 
   navigation: {
     nextEl: ".swiper-button-next",
@@ -233,7 +232,8 @@ if (navProject) {
     e.preventDefault();
     const section = document.getElementById("section-project");
     if (section) {
-      const offsetY = section.offsetTop - 150;
+      // 프로젝트 제목이 화면 중앙 위로 살짝 더 올라오도록 오프셋을 크게 설정
+      const offsetY = section.offsetTop - -180;
       window.scrollTo({ top: offsetY, behavior: "smooth" });
     }
   });
@@ -246,7 +246,7 @@ if (navMember) {
     e.preventDefault();
     const section = document.getElementById("section-member");
     if (section) {
-      const offsetY = section.offsetTop - 150;
+      const offsetY = section.offsetTop - -150;
       window.scrollTo({ top: offsetY, behavior: "smooth" });
     }
   });
